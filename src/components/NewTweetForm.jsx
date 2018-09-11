@@ -7,14 +7,18 @@ function NewTweetForm(props){
   let _handle = null;
   let _date = null;
   let _text = null;
+  let _thumbsUp = 0;
+  let _thumbsDown = 0;
 
   function handleNewTweetFormSubmission(event) {
     event.preventDefault();
-    props.onNewTweetCreation({name: _name.value, handle: _handle.value, date: _date.value, text: _text.value, id: v4()});
+    props.onNewTweetCreation({name: _name.value, handle: _handle.value, date: _date.value, text: _text.value, thumbsUp: _thumbsUp, thumbsDown: _thumbsDown, id: v4()});
     _name.value = '';
     _handle.value = '';
     _date.value = '';
     _text.value = '';
+    _thumbsUp = 0;
+    _thumbsDown = 0;
   }
   return (
     <div>

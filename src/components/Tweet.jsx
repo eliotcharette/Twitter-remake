@@ -2,39 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-class Tweet extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      thumbsUp: 0,
-      thumbsDown: 0
-    };
-    this.handleThumbUpClick = this.handleThumbUpClick.bind(this);
-    this.handleThumbDownClick = this.handleThumbDownClick.bind(this);
-  }
+function Tweet(props) {
 
 
-  handleThumbUpClick(){
-    let tryUp = this.state.thumbsUp +1;
-    this.setState({thumbsUp: tryUp});
-  }
-  handleThumbDownClick(){
-    let tryDown = this.state.thumbsDown +1;
-    this.setState({thumbsDown: tryDown});
-  }
-
-  render(){
-
-
-    return (
-      <div>
-        <style global jsx>{`
+  return (
+    <div>
+      <style global jsx>{`
           body {
             background-color: #b3ecff
           }
         `}
-        </style>
-        <style>{`
+      </style>
+      <style>{`
           .card-title {
             background-color: lightgreen;
             font-size: 50px;
@@ -42,36 +21,37 @@ class Tweet extends React.Component {
             margin-bottom: 0px;
           }
       `}
-        </style>
+      </style>
 
-
-        <div className="card">
-          <h3 className="card-title">{this.props.name}</h3>
-          <h4>{this.props.handle}</h4>
-          <h4>{this.props.date}</h4>
-          <p><em>{this.props.text}</em></p>
-          <div className="row">
-            <div className="col-md-3">
-              <p>{this.state.thumbsUp}</p>
-              <p>{this.state.thumbsDown}</p>
-            </div>
-            <div className="col-md-9">
-              <button onClick={this.handleThumbUpClick}>👍</button><br/>
-              <button onClick={this.handleThumbDownClick}>👎</button>
-            </div>
+      <div className="card">
+        <h3 className="card-title">{props.name}</h3>
+        <h4>{props.handle}</h4>
+        <h4>{props.date}</h4>
+        <p><em>{props.text}</em></p>
+        <div className="row">
+          <div className="col-md-3">
+            <p>{props.thumbsUp}</p>
+            <p>{props.thumbsDown}</p>
+          </div>
+          <div className="col-md-9">
+            <button onClick={()=>props.onClickUp(props.id)}>👍</button><br/>
+            <button onClick={()=>props.onClickDown(props.id)}>👎</button>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 Tweet.propTypes = {
   name: PropTypes.string.isRequired,
   handle: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  thumbsUp: PropTypes.element,
-  thumbsDown: PropTypes.element,
+  thumbsUp: PropTypes.number,
+  thumbsDown: PropTypes.number,
+  id: PropTypes.string,
+  onClickUp: PropTypes.func,
+  onClickDown: PropTypes.func,
 };
 
 export default Tweet;
