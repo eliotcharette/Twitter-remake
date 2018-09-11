@@ -5,6 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 import NewTweetControl from './NewTweetControl';
 import Error404 from './Error404';
 
+
+
 class App extends React.Component {
 
   constructor(props) {
@@ -23,11 +25,14 @@ class App extends React.Component {
     return (
       <div>
         <Header/>
-        <Switch>
-          <Route exact path='/' render={()=><TweetList tweetList={this.state.masterTweetList} />} />
-          <Route path='/newtweet' render={()=><NewTweetControl onNewTweetCreation={this.handleAddingNewTweetToList}/>} />
-          <Route component={Error404} />
-        </Switch>
+        <div className="container">
+
+          <Switch>
+            <Route exact path='/' render={()=><TweetList tweetList={this.state.masterTweetList} />} />
+            <Route path='/newtweet' render={()=><NewTweetControl onNewTweetCreation={this.handleAddingNewTweetToList}/>} />
+            <Route component={Error404} />
+          </Switch>
+        </div>
       </div>
     );
   }

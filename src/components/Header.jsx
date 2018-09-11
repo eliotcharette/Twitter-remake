@@ -16,8 +16,8 @@ function Header() {
               float: right;
               padding-right: 45px;
             }
-            .navbar {
-
+            .img {
+              margin: auto;
             }
        `}</style>
       <div className='navbar'>
@@ -27,7 +27,7 @@ function Header() {
         <hr/>
       </div>
       <div className='header'>
-
+        <img className="img"src={twitter}></img>
       </div>
     </div>
   );
