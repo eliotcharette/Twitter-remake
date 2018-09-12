@@ -53,7 +53,6 @@ class TweetList extends React.Component {
       <div className="row">
         <hr/>
         <div className="col-md-3">
-          <button onClick={this.handleSortTweets}>Sort Tweets</button>
           <h1>Shnert Twitter</h1>
           <h3>I made Shnert twitter in my 3rd year of Utah upper high education place where I got my idea from some goons.</h3>
         </div>
