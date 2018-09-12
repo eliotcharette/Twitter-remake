@@ -13,7 +13,16 @@ class TweetList extends React.Component {
     this.handleSortTweets = this.handleSortTweets.bind(this);
     this.handleThumbDownClick = this.handleThumbDownClick.bind(this);
   }
+  componentDidMount() {
+    this.waitTimeUpdateTimer = setInterval(() =>
+  this.handleSortTweets(),
+  5000
+);
+  }
 
+  componentWillUnmount(){
+    clearInterval(this.waitTimeUpdateTimer);
+  }
   handleSortTweets(){
     this.setState(() => {
       this.props.tweetList.sort(compareTweets);
