@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'moment';
 
 
 function Tweet(props) {
@@ -25,6 +26,7 @@ function Tweet(props) {
 
       <div className="card">
         <h3 className="card-title">{props.name}</h3>
+        <p>{props.formattedWaitTime}</p>
         <h4>{props.handle}</h4>
         <h4>{props.date}</h4>
         <p><em>{props.text}</em></p>
@@ -52,6 +54,7 @@ Tweet.propTypes = {
   id: PropTypes.string,
   onClickUp: PropTypes.func,
   onClickDown: PropTypes.func,
+  formattedWaitTime: PropTypes.string.isRequired,
 };
 
 export default Tweet;

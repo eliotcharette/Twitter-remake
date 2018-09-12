@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import Moment from 'moment';
 
 function NewTweetForm(props){
   let _name = null;
@@ -12,7 +13,7 @@ function NewTweetForm(props){
 
   function handleNewTweetFormSubmission(event) {
     event.preventDefault();
-    props.onNewTweetCreation({name: _name.value, handle: _handle.value, date: _date.value, text: _text.value, thumbsUp: _thumbsUp, thumbsDown: _thumbsDown, id: v4()});
+    props.onNewTweetCreation({name: _name.value, handle: _handle.value, date: _date.value, text: _text.value, thumbsUp: _thumbsUp, thumbsDown: _thumbsDown, id: v4(), timeOpen: new Moment()});
     _name.value = '';
     _handle.value = '';
     _date.value = '';

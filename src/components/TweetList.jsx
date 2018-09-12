@@ -58,6 +58,7 @@ class TweetList extends React.Component {
               thumbsDown={tweet.thumbsDown}
               onClickUp={this.handleThumbUpClick}
               onClickDown={this.handleThumbDownClick}
+              formattedWaitTime={tweet.formattedWaitTime}
               id={tweet.id}
               key={tweet.id}/>
 
